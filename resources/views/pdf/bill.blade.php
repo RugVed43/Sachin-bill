@@ -25,7 +25,7 @@ ini_set('max_execution_time', 0);
     <table border="1" cellpadding="10" cellspacing="0" style="width: 100%">
         <tr>
             <td colspan="3" style='text-align: center; padding: 5px; margin: 5px;'>
-                <img src="{{ URL::to('public/EBS-logo.jpg') }}" alt="" style='width:inherit;text-align: center'>
+                <h1>DISHA BROADBAND SERVICES</h1>
             </td>
             <td style="text-align: center; padding: 0px;margin: 0px;">
                 <p style="font-size: 12px;font-weight: bold;padding: 0px;margin: 0px;">PAYTM</p>
@@ -87,17 +87,15 @@ ini_set('max_execution_time', 0);
     <hr>
     <ul style="margin:0">
         <li><b style="margin:0 0 2px 0;padding:0;font-size:1.5em">Helpline Number :
-                8454965547
+                9833533290/ 9833533297
             </b>[Send Payment Screenshot Here]</li>
         <li style="margin:5px 0;"><b>Please avoid calling / delete any other numbers as some are wrong or belong to
                 person who has left the firm</b></li>
-        <li style="margin:5px 0;">For any grievance regarding staff please WhatsApp on 9773991234 </li>
+        <li style="margin:5px 0;">For any grievance regarding staff please WhatsApp on 9987738441 </li>
         <li style="margin:5px 0;">For Billing Queries / to submit proof of payment / Request Cash Pickup -> WhatsApp on
-            8454965547 </li>
+            9833533290/ 9833533297 </li>
         <li style="margin:5px 0;"><b>PLEASE PAY ONLINE ONLY, If any billing issue please inform via WhatsApp on
-                8454965547 </b></li>
-        <li style="margin:5px 0;">For Online Payment Details see below or visit http://pay.exits.in</li>
-        <li style="margin:5px 0;"><b>Pay USD/Euro get 5% discount</b></li>
+                9833533290/ 9833533297 </b></li>
         {{-- <li style="margin:5px 0;"><b>WhatsApp Numbers have incoming blocked, kindly use WhatsApp only to message</b></li> --}}
         <li style="margin:5px 0;">
             <h2 style="margin: 2px 0 2px 0;padding:0;">
@@ -112,15 +110,14 @@ ini_set('max_execution_time', 0);
                 <b>PAYTM:</b> <br><br>
                 <img src="{{ url('public/paytm.jpg') }}" style="width: 200px; height: 200px; ">
             </td>
-            <td colspan="" style="height: 60px;vertical-align: top;background-color: #fff; text-align: center"><b>BHIM
-                    UPI:</b> <br> <br>
-                <img src="{{ url('public/bhim.jpg') }}" style="width: 200px; height: 240px; "></td>
+            <td colspan="" style="height: 60px;vertical-align: top;background-color: #fff; text-align: center"><b>GOOGLE PAY:</b> <br> <br>
+                <img src="{{ url('public/gpay.jpg') }}" style="width: 200px; height: 240px; "></td>
             <td colspan="" style="height: 60px;vertical-align: top;background-color: #fff; text-align: center"><b> NEFT
                     IMPS: </b><br><br> UNION BANK OF INDIA
                 <hr>
-                SAVINGS A/C:<br> Antonius Carvalho
+                SAVINGS A/C:<br> DISHA BROADBAND SERVICES
                 <hr>
-                A/C No:<br> 623302010005145
+                A/C No:<br> 623301010050470
                 <hr>
                 Branch:<br> Vartak Nagar Thane
                 <hr>
