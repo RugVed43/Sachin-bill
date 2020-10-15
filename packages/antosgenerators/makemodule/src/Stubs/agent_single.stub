@@ -1,0 +1,42 @@
+@extends('layouts.master')
+
+@section('content')
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  @component('inc.box')
+
+  @slot('title')
+  myTitle Data Form
+  @endslot
+  @slot('tools')
+  {{-- tools --}}
+  @endslot
+  @if (isset($edit))
+  {!! Form::model($myVar, ['route' => ['amyVar.update', $myVar->id], 'method' => 'PUT', 'class' => 'form-horizontal','files' => true ]) !!}
+  @else
+  {!! Form::open(['method' => 'POST', 'route' => 'amyVar.store', 'class' => 'form-horizontal','files' => true ]) !!}
+  @endif
+  <div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab_1" data-toggle="tab">Details</a></li>
+     <!-- <li><a href="#tab_2" data-toggle="tab">Tab2</a></li> -->
+     <!-- <li><a href="#tab_3" data-toggle="tab">Tab3</a></li> -->
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab_1">
+        myFormFields
+      </div>
+      <!-- /.tab-pane -->
+      <div class="tab-pane" id="tab_2"></div>
+      <!-- /.tab-pane -->
+      <div class="tab-pane" id="tab_3"></div>
+      <!-- /.tab-pane -->
+    </div>
+    <!-- /.tab-content -->
+  </div>
+  <hr>
+  {!! Form::submit("Save !", ['class' => 'btn btn-success btn-lg btn-block']) !!}
+  {!! Form::close() !!}
+  @endcomponent
+</div>
+
+@endsection

@@ -1,0 +1,20 @@
+{
+    "name": "anto/laravel-make-module",
+    "description": "Anto's Laravel Package to Generate Model, Routes, Controller, Migration and Views for admin & user",
+    "authors": [
+        {
+            "name": "Antonius Carvalho",
+            "email": "me@ianto.in"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "AntosGenerators\\ModuleGenerator\\": "packages/antosgenerators/makemodule/src"
+        }
+    }
+}

@@ -1,0 +1,46 @@
+@extends('layouts.master')
+
+@section('content')
+@component('inc.box')
+
+@slot('title')
+myVars
+@endslot
+@slot('tools')
+{{-- tools --}}
+@endslot
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 table-responsive">
+  <table class="table table-hover datatables">
+    <thead>
+      <tr>
+        myTableColNames
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach ($myVars as $myVar)
+      <tr>
+        myTableColumns
+        <td>
+              <form action="{{ route('myVar.destroy', $myVar->id) }}" method="POST">
+              <a href="{{ route('myVar.edit',$myVar->id) }}" class="btn btn-warning"><i class="fa fa-pencil"></i></a>     
+                {{ method_field('DELETE') }}
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-danger"  onclick="return confirm('You really want to delete this item ?')"><i class="fa fa-trash"></i></button>
+              </form>
+        </td>
+      </tr>
+      @endforeach
+    </tbody>
+    <tfoot>
+      <tr>
+        myTableColNames
+        <th>Actions</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+@endcomponent
+@endsection

@@ -1,0 +1,2 @@
+	Route::resource('a|MODEL_NAME|', 'Agent\Agent|MODEL_TITLE|Controller');
+	//AGENT_ROUTES

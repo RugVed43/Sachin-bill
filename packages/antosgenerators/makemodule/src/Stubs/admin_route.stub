@@ -1,0 +1,2 @@
+	Route::resource('m|MODEL_NAME|', 'Admin\Manage|MODEL_TITLE|Controller');
+	//ADMIN_ROUTES

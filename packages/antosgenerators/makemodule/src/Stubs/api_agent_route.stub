@@ -1,0 +1,12 @@
+	// |MODEL_NAME| Agent API Routes
+	Route::get('aapi|MODEL_NAME|/table', [
+		'uses' => 'Api\Agent\aApi|MODEL_TITLE|Controller@getDataTables',
+		'as' => 'aapi|MODEL_NAME|.gettbl'
+		]);
+	Route::post('aapi|MODEL_NAME|/table', [
+		'uses' => 'Api\Agent\aApi|MODEL_TITLE|Controller@postDataTables',
+		'as' => 'aapi|MODEL_NAME|.posttbl'
+		]);
+	Route::resource('aapi|MODEL_NAME|', 'Api\Agent\aApi|MODEL_TITLE|Controller');
+
+	//AGENT_API_ROUTES

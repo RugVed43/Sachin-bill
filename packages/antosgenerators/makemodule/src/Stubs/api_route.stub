@@ -1,0 +1,11 @@
+	// |MODEL_NAME| Client API Routes
+	Route::get('api|MODEL_NAME|/table', [
+		'uses' => 'Api\User\Api|MODEL_TITLE|Controller@getDataTables',
+		'as' => 'api|MODEL_NAME|.gettbl'
+		]);
+	Route::post('api|MODEL_NAME|/table', [
+		'uses' => 'Api\User\Api|MODEL_TITLE|Controller@postDataTables',
+		'as' => 'api|MODEL_NAME|.posttbl'
+		]);
+	Route::resource('api|MODEL_NAME|', 'Api\User\Api|MODEL_TITLE|Controller');
+	//CLIENT_API_ROUTES

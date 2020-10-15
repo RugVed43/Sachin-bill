@@ -1,0 +1,12 @@
+	// |MODEL_NAME| Admin API Routes
+	Route::get('mapi|MODEL_NAME|/table', [
+		'uses' => 'Api\Admin\mApi|MODEL_TITLE|Controller@getDataTables',
+		'as' => 'mapi|MODEL_NAME|.gettbl'
+		]);
+	Route::post('mapi|MODEL_NAME|/table', [
+		'uses' => 'Api\Admin\mApi|MODEL_TITLE|Controller@postDataTables',
+		'as' => 'mapi|MODEL_NAME|.posttbl'
+		]);
+	Route::resource('mapi|MODEL_NAME|', 'Api\Admin\mApi|MODEL_TITLE|Controller');
+
+	//ADMIN_API_ROUTES

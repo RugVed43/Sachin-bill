@@ -1,0 +1,27 @@
+@extends('layouts.master')
+
+@section('content')
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  @component('inc.box')
+
+  @slot('title')
+  myTitle Data Form
+  @endslot
+  @slot('tools')
+  {{-- tools --}}
+  @endslot
+  @if (isset($edit))
+  {!! Form::model($myVar, ['route' => ['myVar.update', $myVar->id], 'method' => 'PUT', 'class' => 'form-horizontal','files' => true ]) !!}
+  @else
+  {!! Form::open(['method' => 'POST', 'route' => 'myVar.store', 'class' => 'form-horizontal','files' => true ]) !!}
+  @endif
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    myFormFields
+  </div>
+  <hr>
+  {!! Form::submit("Save !", ['class' => 'btn btn-success btn-lg btn-block']) !!}
+  {!! Form::close() !!}
+  @endcomponent
+</div>
+
+@endsection

@@ -1,0 +1,72 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\MyModelClass;
+use App\Http\Requests;
+use Illuminate\Http\Request;
+use Request as Req;
+use Log;
+use App\Http\Controllers\Controller;
+class ManageMyModelClassController extends Controller
+{
+
+    public function index()
+    {
+        $myModelInstances = MyModelClass::all();
+        return view('admin.myModelInstances')->with([
+            'myModelInstances' => $myModelInstances,
+            ]);
+    }
+
+    public function create()
+    {
+       return view('admin.myModelInstance');
+   }
+
+    public function store(Request $request)
+    {
+
+        $input = $request->all();
+        /*
+            myModelInputs
+        */
+        $myModelInstance = MyModelClass::create($input);
+        return redirect()->route('mmyModelInstance.index');
+
+    }
+
+    public function show($id)
+    {
+        //
+    }
+
+    public function edit($id)
+    {
+        $myModelInstance = MyModelClass::find($id);
+        return view('admin.myModelInstance')->with([
+            'myModelInstance' => $myModelInstance,
+            'edit' => 'edit',
+            ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $myModelInstance = MyModelClass::find($id);
+        $input = $request->all();
+        /*
+            myModelInputs
+        */
+        $myModelInstance->fill($input)->save();
+        return redirect()->route('mmyModelInstance.index');
+        //return redirect()->back();
+    }
+
+    public function destroy($id)
+    {
+       $myModelInstance = MyModelClass::find($id);
+       $myModelInstance->delete();
+       return redirect()->route('mmyModelInstance.index');
+   }
+
+}

@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Http\Controllers\User;
+
+use App\MyModelClass;
+use App\Http\Requests;
+use Illuminate\Http\Request;
+use Request as Req;
+use Log;
+use App\Http\Controllers\Controller;
+class MyModelClassController extends Controller
+{
+    public function index()
+    {
+        $myModelInstances = MyModelClass::all();
+        return view('myModelInstances')->with([
+            'myModelInstances' => $myModelInstances,
+            ]);
+    }
+
+    public function create()
+    {
+       return view('myModelInstance');
+   }
+
+    public function store(Request $request)
+    {
+
+        $input = $request->all();
+        /*
+            myModelInputs
+        */
+        $myModelInstance = MyModelClass::create($input);
+        return redirect()->route('myModelInstance.index');
+
+    }
+
+    public function show($id)
+    {
+        //
+    }
+
+    public function edit($id)
+    {
+        $myModelInstance = MyModelClass::find($id);
+        return view('myModelInstance')->with([
+            'myModelInstance' => $myModelInstance,
+            'edit' => 'edit',
+            ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $myModelInstance = MyModelClass::find($id);
+        $input = $request->all();
+        /*
+            myModelInputs
+        */
+        $myModelInstance->fill($input)->save();
+        return redirect()->back();
+    }
+
+    public function destroy($id)
+    {
+       $myModelInstance = MyModelClass::find($id);
+       $myModelInstance->delete();
+       return redirect()->route('myModelInstance.index');
+   }
+
+}

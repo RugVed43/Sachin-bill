@@ -1,0 +1,68 @@
+<?php 
+
+Excel::load(Input::file('excel'),function($reader) use( $input,$purchase,$sale,$user){
+  $results = $reader->first();  
+  $reader->each(function($sheet) use( $input,$purchase,$sale,$user){
+     $sheet->each(function($row) use( $input,$purchase,$sale,$user){
+        if (!empty($row['mac']) && !empty($row['serial'])) {
+
+        }
+    });
+ });
+});
+public function precheckout($id="")
+    {
+        $order = Order::find($id);
+        $user = User::find($order->user_id);
+        if (!empty($user->fname) && !empty($user->addr1) && !empty($user->city) && !empty($user->phone1) && !empty($user->addr1)) {
+            return redirect()->route('checkout',$order->id); 
+        } else {
+
+            return view('precheckout')->with([
+                'user'=> $user,
+                'order'=> $order,
+                ]);
+        }
+        dd($order,$user); 
+    }
+    public function checkout($id="")
+    {
+        $order = Order::find($id);
+        $user = User::find($order->user_id);
+        $tid = $order->id.time().rand(1,99999);
+        $parameters = [
+        'key' => '1PPFcxUH',
+        'tid' => $tid,
+        'txnid' => $tid,
+        'surl' => route('received'),
+        'furl' => route('received'),
+        'firstname' => $user->fname . " " .$user->lname,
+        'email' => $user->email,
+        'phone' => $user->phone1,
+        'productinfo' => 'foodhomey',
+        'service_provider' => 'payu_paisa',
+        'amount' => $order->amount,
+
+        ];
+        $order->txnid = $tid;
+        $order->save();
+        $porder = Indipay::gateway('PayUMoney')->prepare($parameters);
+        return Indipay::process($porder);
+    }
+
+    public function received(Request $request)
+    {
+        $response = Indipay::response($request);
+        $order = Order::find($response['id']);
+        if ($response['status']=='success' && $response['amount']==$order->amount && $response['txnid']==$order->txnid) {
+            $order->payment_status = 'PAID';
+            $order->payment_received = $response['amount'];
+            $order->gateway = 'PAYUMONEY';
+            $order->gateway_id = $response['payuMoneyId'];
+            Session::flash('FORWARD', 'TRUE'); 
+        } 
+        $order->save();
+        return redirect()->route('order.show', $order->id);
+        // dd($response['status'],$response['amount']);
+    }
+?>

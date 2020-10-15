@@ -1,0 +1,85 @@
+<?php
+
+namespace App\Http\Controllers\Api\User;
+
+use App\MyModelClass;
+use App\Http\Requests;
+use Illuminate\Http\Request;
+use DB;
+use Auth;
+use Carbon\Carbon;
+use DataTables;
+use App\Http\Controllers\Controller;
+class ApiMyModelClassController extends Controller
+{
+    public function index()
+    {
+        $myModelInstances = MyModelClass::all();
+        return response()->json([
+            'success' =>true,
+            'myModelInstances' => $myModelInstances
+        ]);
+    }
+
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+
+        $input = $request->all();
+        $myModelInstance = MyModelClass::create($input);
+        return response()->json([
+            'success' =>true,
+            'myModelInstance' => $myModelInstance
+        ]);
+
+    }
+
+    public function show($id)
+    {
+        $myModelInstance = MyModelClass::find($id);
+        return response()->json([
+            'success' =>true,
+            'myModelInstance' => $myModelInstance
+        ]);
+    }
+
+    public function edit($id)
+    {
+        $myModelInstance = MyModelClass::find($id);
+        return response()->json([
+            'success' =>true,
+            'myModelInstance' => $myModelInstance
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $myModelInstance = MyModelClass::find($id);
+        $input = $request->all();
+        $myModelInstance->fill($input)->save();
+        return response()->json([
+            'success' =>true,
+            'myModelInstance' => $myModelInstance
+        ]);
+    }
+
+    public function destroy($id)
+    {
+     $myModelInstance = MyModelClass::find($id);
+     $myModelInstance->delete();
+     return response()->json(['msg'=>'myModelInstance deleted','opstatus' => 'DELETED' ]);
+    }
+    public function getDataTables()
+    {
+        $myModelInstance = MyModelClass::all();
+        return DataTables::of($myModelInstance)->toJson();
+    }
+    public function postDataTables(Request $request)
+    {
+        return DataTables::of(MyModelClass::query())->toJson();
+    }
+}

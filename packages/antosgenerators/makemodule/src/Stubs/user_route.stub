@@ -1,0 +1,2 @@
+Route::resource('|MODEL_NAME|', 'User\|MODEL_TITLE|Controller');
+//USER_ROUTES

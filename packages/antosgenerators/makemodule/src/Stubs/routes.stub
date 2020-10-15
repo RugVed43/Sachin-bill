@@ -1,0 +1,13 @@
+/*
+|--------------------------------------------------------------------------
+| |MODEL_TITLE| Routes
+|--------------------------------------------------------------------------
+|
+| Here are all routes relating to the |MODEL_TITLE| model. A Resource route 
+| for the |MODEL_TITLE| model has been added for Admin / User / Api.
+|
+*/
+Route::resource('m|MODEL_NAME|', 'Manage|MODEL_TITLE|Controller');
+Route::resource('|MODEL_NAME|', '|MODEL_TITLE|Controller');
+Route::resource('api|MODEL_NAME|', 'Api|MODEL_TITLE|Controller');
+
