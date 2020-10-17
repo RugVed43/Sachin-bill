@@ -35,7 +35,7 @@ ini_set('max_execution_time', 0);
         <tr>
             <td colspan="">RECEIPT (Client Copy)</td>
             <td style='font-weight: bold;'>SRV.: 3 </td>
-            <td style="background-color: #DCDCDC">BILL Date.:
+            <td style="background-color: #DCDCDC;font-size:0.8em">BILL Date.:
 
                 {{ $bill_date }}
 
@@ -86,7 +86,7 @@ ini_set('max_execution_time', 0);
     </table>
     <hr>
     <ul style="margin:0">
-        <li><b style="margin:0 0 2px 0;padding:0;font-size:1.5em">Helpline Number :
+        <li><b style="margin:0 0 2px 0;padding:0;font-size:1.3em">Helpline Number :
                 9833533290/ 9833533297
             </b>[Send Payment Screenshot Here]</li>
         <li style="margin:5px 0;"><b>Please avoid calling / delete any other numbers as some are wrong or belong to
@@ -98,10 +98,10 @@ ini_set('max_execution_time', 0);
                 9833533290/ 9833533297 </b></li>
         {{-- <li style="margin:5px 0;"><b>WhatsApp Numbers have incoming blocked, kindly use WhatsApp only to message</b></li> --}}
         <li style="margin:5px 0;">
-            <h2 style="margin: 2px 0 2px 0;padding:0;">
+            <h4 style="margin: 2px 0 2px 0;padding:0;">
                 PAYMENT DUE DATE >>>
                 {{ $due_date }}
-            </h2>
+            </h4>
         </li>
     </ul>
     <table border="1" cellpadding="5" cellspacing="0" style="width: 100%">
